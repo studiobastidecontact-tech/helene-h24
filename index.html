@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hélène H24 – Accompagnement administratif & personnel</title>
+<meta name="description" content="Hélène vous accompagne dans vos démarches administratives, votre organisation personnelle et les moments importants de votre vie. Réservez une consultation en ligne.">
+<meta name="keywords" content="accompagnement administratif, aide divorce, organisation personnelle, secrétariat particulier, aide administrative">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blanc: #FAFAF7;
+    --beige: #F2EDE4;
+    --beige-moyen: #E8E0D0;
+    --vert: #7A9E7E;
+    --vert-clair: #C8DBC9;
+    --vert-pale: #EBF3EB;
+    --gris: #8A8A82;
+    --gris-doux: #D4D0C8;
+    --texte: #2D2D28;
+    --texte-moyen: #5A5A52;
+    --accent: #9B7A5C;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--blanc);
+    color: var(--texte);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(250,250,247,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--beige-moyen);
+    padding: 0 2rem;
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 400;
+    color: var(--texte); text-decoration: none; letter-spacing: 0.02em;
+  }
+  .logo span { color: var(--vert); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--texte-moyen);
+    font-size: 0.875rem; font-weight: 400; letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--vert); }
+  .nav-cta {
+    background: var(--vert); color: white !important;
+    padding: 0.5rem 1.25rem; border-radius: 50px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: #5E7D62 !important; color: white !important; }
+  .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .burger span { display: block; width: 22px; height: 1.5px; background: var(--texte); }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--vert); font-weight: 500; margin-bottom: 0.75rem;
+  }
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.2; }
+  h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+  h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--texte); }
+  h3 { font-size: 1.5rem; }
+  p { color: var(--texte-moyen); max-width: 65ch; }
+
+  /* HERO */
+  #accueil {
+    min-height: 100vh; display: flex; align-items: center;
+    background: linear-gradient(160deg, var(--blanc) 60%, var(--vert-pale) 100%);
+    padding-top: 100px;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .hero-text .tagline {
+    font-size: clamp(0.9rem, 2vw, 1rem); color: var(--vert);
+    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;
+    margin-bottom: 1rem; display: block;
+  }
+  .hero-text h1 { margin-bottom: 1.5rem; color: var(--texte); }
+  .hero-text h1 em { font-style: italic; color: var(--vert); }
+  .hero-text p { font-size: 1.1rem; margin-bottom: 2rem; max-width: 50ch; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--vert); color: white;
+    padding: 0.875rem 2rem; border-radius: 50px;
+    text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: #5E7D62; transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent; color: var(--texte);
+    padding: 0.875rem 2rem; border-radius: 50px;
+    text-decoration: none; font-size: 0.9rem; font-weight: 400;
+    border: 1.5px solid var(--beige-moyen);
+    transition: border-color 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { border-color: var(--vert); transform: translateY(-1px); }
+  .hero-card {
+    background: white; border-radius: 24px; padding: 2.5rem;
+    border: 1px solid var(--beige-moyen);
+    box-shadow: 0 8px 48px rgba(122,158,126,0.12);
+  }
+  .hero-card .avatar {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: var(--vert-pale); border: 3px solid var(--vert-clair);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; color: var(--vert); margin-bottom: 1.25rem;
+  }
+  .hero-card h3 { font-size: 1.25rem; color: var(--texte); margin-bottom: 0.25rem; }
+  .hero-card .subtitle { font-size: 0.875rem; color: var(--gris); margin-bottom: 1.5rem; max-width: none; }
+  .trust-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .trust-list li { display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: var(--texte-moyen); }
+  .trust-list li::before { content: ''; width: 20px; height: 20px; border-radius: 50%; background: var(--vert-pale); border: 1.5px solid var(--vert-clair); flex-shrink: 0; display: flex; }
+  .check-icon { width: 20px; height: 20px; flex-shrink: 0; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: var(--vert-pale); border: 1px solid var(--vert-clair);
+    border-radius: 50px; padding: 0.35rem 1rem;
+    font-size: 0.8rem; color: var(--vert); font-weight: 500;
+    margin-top: 1.5rem;
+  }
+
+  /* À PROPOS */
+  #apropos { background: var(--beige); }
+  .apropos-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
+  .apropos-photo {
+    aspect-ratio: 4/5; background: var(--vert-pale);
+    border-radius: 20px; border: 1px solid var(--vert-clair);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; position: relative;
+  }
+  .apropos-photo-inner {
+    width: 100%; height: 100%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 1rem;
+  }
+  .apropos-photo-avatar {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: white; border: 3px solid var(--vert-clair);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--vert);
+  }
+  .apropos-photo p { text-align: center; font-size: 0.9rem; color: var(--vert); max-width: none; }
+  .values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+  .value-card {
+    background: white; border-radius: 12px; padding: 1.25rem;
+    border: 1px solid var(--beige-moyen);
+  }
+  .value-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; margin-bottom: 0.25rem; color: var(--texte); }
+  .value-card p { font-size: 0.85rem; max-width: none; }
+
+  /* SERVICES */
+  #services { background: var(--blanc); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .service-card {
+    background: white; border: 1px solid var(--beige-moyen);
+    border-radius: 20px; padding: 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--vert-clair);
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(122,158,126,0.15); }
+  .service-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--vert-pale); border: 1px solid var(--vert-clair);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem; font-size: 1.3rem;
+  }
+  .service-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+  .service-card p { font-size: 0.9rem; margin-bottom: 1rem; }
+  .service-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .service-list li { font-size: 0.85rem; color: var(--texte-moyen); padding-left: 1.2rem; position: relative; }
+  .service-list li::before { content: '–'; position: absolute; left: 0; color: var(--vert); }
+
+  /* TARIFS */
+  #tarifs { background: var(--beige); }
+  .tarifs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .tarif-card {
+    background: white; border-radius: 20px; padding: 2rem;
+    border: 1.5px solid var(--beige-moyen); text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .tarif-card.featured {
+    border-color: var(--vert); background: white;
+    box-shadow: 0 8px 32px rgba(122,158,126,0.2);
+  }
+  .tarif-card:hover { transform: translateY(-4px); }
+  .tarif-badge {
+    display: inline-block; background: var(--vert); color: white;
+    font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.25rem 0.75rem; border-radius: 50px; margin-bottom: 1rem;
+  }
+  .tarif-card h3 { font-size: 1.2rem; margin-bottom: 0.25rem; }
+  .tarif-desc { font-size: 0.85rem; color: var(--gris); margin-bottom: 1.5rem; max-width: none; }
+  .tarif-prix {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; color: var(--texte); margin-bottom: 0.25rem; line-height: 1;
+  }
+  .tarif-unite { font-size: 0.8rem; color: var(--gris); margin-bottom: 1.5rem; }
+  .tarif-features { list-style: none; text-align: left; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .tarif-features li { font-size: 0.85rem; color: var(--texte-moyen); padding-left: 1.2rem; position: relative; }
+  .tarif-features li::before { content: '✓'; position: absolute; left: 0; color: var(--vert); font-size: 0.8rem; }
+  .tarif-note { font-size: 0.85rem; color: var(--gris); margin-top: 2rem; text-align: center; font-style: italic; max-width: none; }
+
+  /* RÉSERVATION */
+  #reservation { background: var(--blanc); }
+  .resa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .resa-info h2 { margin-bottom: 1rem; }
+  .resa-info p { margin-bottom: 2rem; }
+  .resa-steps { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+  .resa-steps li { display: flex; align-items: flex-start; gap: 1rem; }
+  .step-num {
+    width: 32px; height: 32px; border-radius: 50%; background: var(--vert-pale);
+    border: 1.5px solid var(--vert-clair); display: flex; align-items: center;
+    justify-content: center; font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: var(--vert); flex-shrink: 0;
+  }
+  .step-text h4 { font-size: 0.9rem; font-weight: 500; color: var(--texte); margin-bottom: 0.15rem; }
+  .step-text p { font-size: 0.85rem; max-width: none; }
+
+  /* FORMULAIRES */
+  .form-card {
+    background: white; border-radius: 20px; padding: 2rem;
+    border: 1px solid var(--beige-moyen);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+  }
+  .form-card h3 { font-size: 1.25rem; margin-bottom: 1.5rem; }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-group label { display: block; font-size: 0.8rem; font-weight: 500; color: var(--texte); margin-bottom: 0.35rem; letter-spacing: 0.03em; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 0.75rem 1rem;
+    border: 1.5px solid var(--beige-moyen); border-radius: 10px;
+    background: var(--blanc); color: var(--texte);
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    transition: border-color 0.2s; outline: none;
+    -webkit-appearance: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--vert); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .btn-form {
+    width: 100%; background: var(--vert); color: white;
+    border: none; border-radius: 50px; padding: 0.875rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .btn-form:hover { background: #5E7D62; }
+  .success-msg {
+    display: none; background: var(--vert-pale); border: 1px solid var(--vert-clair);
+    border-radius: 10px; padding: 1rem; text-align: center;
+    color: #3A6B3E; font-size: 0.9rem; margin-top: 1rem;
+  }
+
+  /* PAIEMENT */
+  #paiement { background: var(--beige); }
+  .paiement-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
+  .paiement-options { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+  .paiement-option {
+    background: white; border: 1.5px solid var(--beige-moyen);
+    border-radius: 14px; padding: 1.25rem 1.5rem;
+    cursor: pointer; transition: border-color 0.2s;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .paiement-option.selected { border-color: var(--vert); background: var(--vert-pale); }
+  .paiement-option input[type="radio"] { accent-color: var(--vert); width: 18px; height: 18px; flex-shrink: 0; }
+  .paiement-option-info { flex: 1; }
+  .paiement-option-info strong { display: block; font-size: 0.9rem; color: var(--texte); }
+  .paiement-option-info span { font-size: 0.8rem; color: var(--gris); }
+  .paiement-prix-display {
+    font-family: 'Cormorant Garamond', serif; font-size: 2rem;
+    color: var(--texte); margin: 1rem 0 0.5rem;
+  }
+  .secure-badges { display: flex; gap: 0.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .secure-badge {
+    background: var(--vert-pale); border: 1px solid var(--vert-clair);
+    border-radius: 50px; padding: 0.25rem 0.75rem;
+    font-size: 0.75rem; color: var(--vert);
+  }
+  .stripe-info { font-size: 0.8rem; color: var(--gris); margin-top: 1rem; }
+
+  /* CONTACT */
+  #contact { background: var(--blanc); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start; }
+  .contact-info-cards { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .contact-card {
+    background: var(--beige); border-radius: 14px; padding: 1.25rem;
+    display: flex; align-items: center; gap: 1rem;
+    border: 1px solid var(--beige-moyen);
+  }
+  .contact-card-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--vert-pale); border: 1px solid var(--vert-clair);
+    display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+  }
+  .contact-card strong { display: block; font-size: 0.85rem; font-weight: 500; color: var(--texte); }
+  .contact-card a { font-size: 0.9rem; color: var(--vert); text-decoration: none; }
+  .contact-card span { font-size: 0.9rem; color: var(--texte-moyen); }
+
+  /* FOOTER */
+  footer {
+    background: var(--texte); color: rgba(255,255,255,0.6);
+    padding: 3rem 2rem; text-align: center;
+  }
+  footer .logo-footer {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
+    color: white; margin-bottom: 0.5rem; display: block;
+  }
+  footer p { font-size: 0.8rem; max-width: none; color: rgba(255,255,255,0.5); }
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  .footer-links { display: flex; gap: 2rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap; }
+  .footer-links a { font-size: 0.8rem; }
+
+  /* MENU MOBILE */
+  .mobile-menu {
+    display: none; position: fixed; top: 64px; left: 0; right: 0;
+    background: var(--blanc); border-bottom: 1px solid var(--beige-moyen);
+    padding: 1.5rem 2rem; z-index: 99;
+    flex-direction: column; gap: 1.25rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { text-decoration: none; color: var(--texte-moyen); font-size: 1rem; }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-cta-desktop { display: none; }
+    .burger { display: flex; }
+    .hero-grid, .apropos-grid, .resa-grid, .paiement-grid, .contact-grid { grid-template-columns: 1fr; }
+    .hero-card, .apropos-photo { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    .values-grid { grid-template-columns: 1fr; }
+    section { padding: 3.5rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <a href="#accueil" class="logo">Hélène <span>H24</span></a>
+    <ul class="nav-links">
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a href="#reservation">Réservation</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#reservation" class="nav-cta">Prendre rendez-vous</a></li>
+    </ul>
+    <button class="burger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#apropos" onclick="closeMenu()">À propos</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#tarifs" onclick="closeMenu()">Tarifs</a>
+  <a href="#reservation" onclick="closeMenu()">Réservation</a>
+  <a href="#paiement" onclick="closeMenu()">Paiement</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="accueil">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="tagline">Accompagnement & aide administrative</span>
+        <h1>Vous n'êtes pas<br><em>seul·e</em> dans<br>vos démarches</h1>
+        <p>Hélène vous accompagne dans les moments importants de votre vie — démarches administratives, séparation, organisation personnelle. Avec douceur et efficacité.</p>
+        <div class="hero-btns">
+          <a href="#reservation" class="btn-primary">Prendre rendez-vous</a>
+          <a href="#services" class="btn-secondary">Découvrir les services</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="avatar">H</div>
+        <h3>Hélène Fournier</h3>
+        <p class="subtitle">Accompagnatrice administrative & personnelle</p>
+        <ul class="trust-list">
+          <li>
+            <svg class="check-icon" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="9" stroke="#7A9E7E" stroke-width="1.5"/>
+              <path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#7A9E7E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Accompagnement bienveillant et confidentiel
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="9" stroke="#7A9E7E" stroke-width="1.5"/>
+              <path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#7A9E7E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Disponible rapidement, à votre rythme
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="9" stroke="#7A9E7E" stroke-width="1.5"/>
+              <path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#7A9E7E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Solutions personnalisées à vos besoins
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="9" stroke="#7A9E7E" stroke-width="1.5"/>
+              <path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#7A9E7E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Prise en charge simple et transparente
+          </li>
+        </ul>
+        <div class="hero-badge">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4" fill="#7A9E7E"/></svg>
+          Disponible – Réservation en ligne
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- À PROPOS -->
+<section id="apropos">
+  <div class="container">
+    <div class="apropos-grid">
+      <div class="apropos-photo">
+        <div class="apropos-photo-inner">
+          <div class="apropos-photo-avatar">H</div>
+          <p>Hélène Fournier<br><small style="color: var(--gris);">Accompagnatrice</small></p>
+        </div>
+      </div>
+      <div>
+        <p class="section-label">À propos</p>
+        <h2>Une présence humaine<br>quand vous en avez besoin</h2>
+        <p style="margin: 1.5rem 0;">Je suis Hélène, et j'ai créé ce service parce que j'ai vu autour de moi des personnes submergées par les démarches de la vie — une séparation difficile, des papiers qui s'accumulent, des étapes importantes à franchir sans savoir par où commencer.</p>
+        <p style="margin-bottom: 1.5rem;">Mon rôle n'est pas de vous juger ni de vous brusquer. C'est d'être à vos côtés, de comprendre votre situation, et de vous aider à avancer avec clarté et sérénité.</p>
+        <p>Chaque personne est unique. C'est pourquoi je m'adapte toujours à votre rythme et à vos besoins réels.</p>
+        <div class="values-grid">
+          <div class="value-card">
+            <h4>Bienveillance</h4>
+            <p>Un accompagnement sans jugement, dans le respect total de votre situation.</p>
+          </div>
+          <div class="value-card">
+            <h4>Confidentialité</h4>
+            <p>Tout ce que vous me confiez reste strictement entre nous.</p>
+          </div>
+          <div class="value-card">
+            <h4>Efficacité</h4>
+            <p>Des solutions concrètes, adaptées à votre situation réelle.</p>
+          </div>
+          <div class="value-card">
+            <h4>Disponibilité</h4>
+            <p>Je suis là quand vous avez besoin de moi, sans délais inutiles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <p class="section-label">Services</p>
+    <h2>Comment puis-je vous aider ?</h2>
+    <p style="margin-top: 1rem;">Cinq domaines d'accompagnement, tous adaptables à votre situation personnelle.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">⚖️</div>
+        <h3>Accompagnement divorce</h3>
+        <p>Un soutien administratif et logistique pendant l'une des périodes les plus éprouvantes de la vie.</p>
+        <ul class="service-list">
+          <li>Aide aux démarches administratives</li>
+          <li>Organisation des documents et dossiers</li>
+          <li>Accompagnement dans les étapes légales</li>
+          <li>Soutien logistique au quotidien</li>
+          <li>Coordination avec les différents intervenants</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>Aide administrative</h3>
+        <p>Simplifier les démarches du quotidien pour que vous puissiez vous concentrer sur l'essentiel.</p>
+        <ul class="service-list">
+          <li>Rédaction de courriers officiels</li>
+          <li>Gestion et classement de documents</li>
+          <li>Suivi de dossiers administratifs</li>
+          <li>Déclarations et formulaires</li>
+          <li>Relations avec les administrations</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🗂️</div>
+        <h3>Intendance & organisation</h3>
+        <p>Pour les personnes dépassées par l'accumulation des tâches et obligations.</p>
+        <ul class="service-list">
+          <li>Tri et organisation des papiers</li>
+          <li>Mise en place d'un système simple</li>
+          <li>Gestion des démarches complexes</li>
+          <li>Suivi des échéances importantes</li>
+          <li>Accompagnement pas à pas</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎉</div>
+        <h3>Événements & occasions</h3>
+        <p>Organisation et accompagnement logistique pour vos projets familiaux et moments spéciaux.</p>
+        <ul class="service-list">
+          <li>Organisation de projets familiaux</li>
+          <li>Coordination logistique d'événements</li>
+          <li>Aide administrative pour un projet</li>
+          <li>Gestion des intervenants</li>
+          <li>Suivi de l'organisation</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤝</div>
+        <h3>Accompagnement personnalisé</h3>
+        <p>Un service entièrement sur mesure, pour les besoins qui ne rentrent dans aucune case.</p>
+        <ul class="service-list">
+          <li>Analyse de votre situation unique</li>
+          <li>Construction d'un plan d'action adapté</li>
+          <li>Flexibilité totale dans le suivi</li>
+          <li>Disponibilité selon vos besoins</li>
+          <li>Tarif ajusté à la mission</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARIFS -->
+<section id="tarifs">
+  <div class="container">
+    <p class="section-label">Tarifs</p>
+    <h2>Des prestations claires,<br>sans mauvaises surprises</h2>
+    <p style="margin-top: 1rem;">Tous les tarifs sont affichés TTC. Paiement sécurisé par carte bancaire.</p>
+    <div class="tarifs-grid">
+      <div class="tarif-card">
+        <h3>Consultation</h3>
+        <p class="tarif-desc">Premier échange pour définir vos besoins</p>
+        <div class="tarif-prix">60 €</div>
+        <div class="tarif-unite">1 heure · en visio ou téléphone</div>
+        <ul class="tarif-features">
+          <li>Analyse de votre situation</li>
+          <li>Identification des priorités</li>
+          <li>Plan d'action personnalisé</li>
+          <li>Sans engagement</li>
+        </ul>
+        <a href="#reservation" class="btn-primary" style="width: 100%; text-align: center;">Réserver</a>
+      </div>
+      <div class="tarif-card">
+        <h3>Aide administrative</h3>
+        <p class="tarif-desc">Accompagnement pour vos démarches</p>
+        <div class="tarif-prix">45 €</div>
+        <div class="tarif-unite">par heure</div>
+        <ul class="tarif-features">
+          <li>Rédaction de courriers</li>
+          <li>Gestion de dossiers</li>
+          <li>Suivi des démarches</li>
+          <li>Compte-rendu inclus</li>
+        </ul>
+        <a href="#reservation" class="btn-primary" style="width: 100%; text-align: center;">Réserver</a>
+      </div>
+      <div class="tarif-card featured">
+        <div class="tarif-badge">Le plus demandé</div>
+        <h3>Accompagnement divorce</h3>
+        <p class="tarif-desc">Suivi complet de votre séparation</p>
+        <div class="tarif-prix">Sur devis</div>
+        <div class="tarif-unite">selon la durée et la complexité</div>
+        <ul class="tarif-features">
+          <li>Accompagnement de A à Z</li>
+          <li>Aide aux démarches juridiques</li>
+          <li>Organisation logistique</li>
+          <li>Disponibilité prioritaire</li>
+          <li>Suivi personnalisé</li>
+        </ul>
+        <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Demander un devis</a>
+      </div>
+      <div class="tarif-card">
+        <h3>Forfait personnalisé</h3>
+        <p class="tarif-desc">Pour un accompagnement sur mesure</p>
+        <div class="tarif-prix">Sur devis</div>
+        <div class="tarif-unite">adapté à vos besoins</div>
+        <ul class="tarif-features">
+          <li>Durée et fréquence flexibles</li>
+          <li>Objectifs définis ensemble</li>
+          <li>Ajustement en cours de route</li>
+          <li>Facturation transparente</li>
+        </ul>
+        <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Me contacter</a>
+      </div>
+    </div>
+    <p class="tarif-note">Des tarifs solidaires peuvent être envisagés selon les situations. N'hésitez pas à m'en parler lors de notre premier échange.</p>
+  </div>
+</section>
+
+<!-- RÉSERVATION -->
+<section id="reservation">
+  <div class="container">
+    <div class="resa-grid">
+      <div class="resa-info">
+        <p class="section-label">Réservation</p>
+        <h2>Prendre rendez-vous</h2>
+        <p style="margin: 1rem 0 2rem;">La première étape est simple. Remplissez le formulaire et je vous réponds dans les 24 heures pour confirmer notre rendez-vous.</p>
+        <ol class="resa-steps">
+          <li>
+            <div class="step-num">1</div>
+            <div class="step-text">
+              <h4>Remplissez le formulaire</h4>
+              <p>Dites-moi ce dont vous avez besoin et quand vous êtes disponible.</p>
+            </div>
+          </li>
+          <li>
+            <div class="step-num">2</div>
+            <div class="step-text">
+              <h4>Je vous contacte</h4>
+              <p>Je reviens vers vous sous 24h pour confirmer le créneau.</p>
+            </div>
+          </li>
+          <li>
+            <div class="step-num">3</div>
+            <div class="step-text">
+              <h4>On se retrouve</h4>
+              <p>En visio, par téléphone ou en présentiel selon votre préférence.</p>
+            </div>
+          </li>
+          <li>
+            <div class="step-num">4</div>
+            <div class="step-text">
+              <h4>Paiement sécurisé</h4>
+              <p>Après notre échange, paiement simple par carte ou virement.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="form-card">
+        <h3>Formulaire de réservation</h3>
+        <form id="reservationForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Prénom *</label>
+              <input type="text" name="prenom" placeholder="Marie" required>
+            </div>
+            <div class="form-group">
+              <label>Nom *</label>
+              <input type="text" name="nom" placeholder="Dupont" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" name="email" placeholder="marie@exemple.fr" required>
+          </div>
+          <div class="form-group">
+            <label>Téléphone</label>
+            <input type="tel" name="tel" placeholder="06 XX XX XX XX">
+          </div>
+          <div class="form-group">
+            <label>Service souhaité *</label>
+            <select name="service" required>
+              <option value="">Sélectionnez un service</option>
+              <option>Consultation (1h – 60€)</option>
+              <option>Aide administrative (45€/h)</option>
+              <option>Accompagnement divorce</option>
+              <option>Intendance & organisation</option>
+              <option>Organisation d'événement</option>
+              <option>Forfait personnalisé</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Disponibilités préférées</label>
+            <input type="text" name="dispos" placeholder="Ex : mardi ou jeudi matin">
+          </div>
+          <div class="form-group">
+            <label>Votre message (optionnel)</label>
+            <textarea name="message" placeholder="Décrivez brièvement votre situation si vous le souhaitez..."></textarea>
+          </div>
+          <button type="submit" class="btn-form">Envoyer ma demande</button>
+        </form>
+        <div class="success-msg" id="resaSuccess">
+          ✓ Merci ! Votre demande a bien été envoyée. Hélène vous répondra dans les 24 heures.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIEMENT -->
+<section id="paiement">
+  <div class="container">
+    <p class="section-label">Paiement en ligne</p>
+    <h2>Réglez votre prestation<br>en toute sécurité</h2>
+    <div style="height: 2rem;"></div>
+    <div class="paiement-grid">
+      <div>
+        <p style="margin-bottom: 1.5rem;">Sélectionnez la prestation que vous souhaitez régler directement en ligne, par carte bancaire via Stripe.</p>
+        <div class="paiement-options">
+          <label class="paiement-option selected" onclick="selectPaiement(this, 60)">
+            <input type="radio" name="paiement" value="60" checked>
+            <div class="paiement-option-info">
+              <strong>Consultation – 1 heure</strong>
+              <span>Premier échange pour définir vos besoins</span>
+            </div>
+            <strong style="color: var(--texte); font-size: 1rem;">60 €</strong>
+          </label>
+          <label class="paiement-option" onclick="selectPaiement(this, 90)">
+            <input type="radio" name="paiement" value="90">
+            <div class="paiement-option-info">
+              <strong>Aide administrative – 2 heures</strong>
+              <span>Accompagnement pour vos démarches</span>
+            </div>
+            <strong style="color: var(--texte); font-size: 1rem;">90 €</strong>
+          </label>
+          <label class="paiement-option" onclick="selectPaiement(this, 135)">
+            <input type="radio" name="paiement" value="135">
+            <div class="paiement-option-info">
+              <strong>Aide administrative – 3 heures</strong>
+              <span>Session approfondie</span>
+            </div>
+            <strong style="color: var(--texte); font-size: 1rem;">135 €</strong>
+          </label>
+          <label class="paiement-option" onclick="selectPaiement(this, 180)">
+            <input type="radio" name="paiement" value="180">
+            <div class="paiement-option-info">
+              <strong>Forfait journée – 4 heures</strong>
+              <span>Accompagnement intensif</span>
+            </div>
+            <strong style="color: var(--texte); font-size: 1rem;">180 €</strong>
+          </label>
+        </div>
+        <div class="secure-badges">
+          <span class="secure-badge">🔒 Paiement sécurisé SSL</span>
+          <span class="secure-badge">💳 Visa / Mastercard</span>
+          <span class="secure-badge">🛡️ Stripe</span>
+          <span class="secure-badge">📱 PayPal</span>
+        </div>
+      </div>
+      <div class="form-card">
+        <h3>Récapitulatif</h3>
+        <div style="border: 1px solid var(--beige-moyen); border-radius: 12px; padding: 1.25rem; margin: 1rem 0; background: var(--beige);">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.9rem; color: var(--texte-moyen);" id="paiementLabel">Consultation – 1 heure</span>
+            <span style="font-weight: 500;" id="paiementPrix">60 €</span>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--beige-moyen); padding-top: 1rem; margin-bottom: 1.5rem;">
+          <span style="font-size: 0.9rem; color: var(--texte-moyen);">Total TTC</span>
+          <div class="paiement-prix-display" id="totalDisplay">60 €</div>
+        </div>
+        <button class="btn-form" id="stripeBtn" onclick="handlePayment()">
+          Payer par carte bancaire
+        </button>
+        <button class="btn-form" style="margin-top: 0.75rem; background: #003087;" onclick="handlePayPal()">
+          Payer avec PayPal
+        </button>
+        <p class="stripe-info" style="margin-top: 1rem; text-align: center;">
+          Paiement 100% sécurisé par Stripe. Vos données bancaires ne sont jamais stockées sur ce site.
+        </p>
+        <div class="success-msg" id="paiementSuccess" style="margin-top: 1rem;">
+          ✓ Redirection vers le paiement sécurisé...
+        </div>
+        <p style="font-size: 0.8rem; color: var(--gris); margin-top: 1rem; text-align: center; max-width: none;">
+          Pour un forfait personnalisé, <a href="#contact" style="color: var(--vert);">contactez-moi directement</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <p class="section-label">Contact</p>
+        <h2>Une question ?<br>Écrivez-moi.</h2>
+        <p style="margin: 1rem 0;">Je réponds à tous les messages personnellement, généralement dans la journée.</p>
+        <div class="contact-info-cards">
+          <div class="contact-card">
+            <div class="contact-card-icon">📧</div>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:contact@helene-h24.fr">contact@helene-h24.fr</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">📞</div>
+            <div>
+              <strong>Téléphone / WhatsApp</strong>
+              <a href="tel:+33600000000">06 XX XX XX XX</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">🕐</div>
+            <div>
+              <strong>Disponibilité</strong>
+              <span>Lun–Ven, 9h–19h</span>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">📍</div>
+            <div>
+              <strong>Zone d'intervention</strong>
+              <span>En ligne (France entière) + présentiel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-card">
+        <h3>Envoyer un message</h3>
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Prénom *</label>
+              <input type="text" placeholder="Marie" required>
+            </div>
+            <div class="form-group">
+              <label>Nom *</label>
+              <input type="text" placeholder="Dupont" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" placeholder="marie@exemple.fr" required>
+          </div>
+          <div class="form-group">
+            <label>Sujet</label>
+            <select>
+              <option>Question sur un service</option>
+              <option>Demande de devis</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Votre message *</label>
+            <textarea placeholder="Décrivez votre demande..." style="min-height: 130px;" required></textarea>
+          </div>
+          <button type="submit" class="btn-form">Envoyer le message</button>
+        </form>
+        <div class="success-msg" id="contactSuccess">
+          ✓ Message envoyé ! Hélène vous répondra dans les 24 heures.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="logo-footer">Hélène H24</span>
+  <p>Accompagnement administratif & personnel · helene-h24.fr</p>
+  <div class="footer-links">
+    <a href="#accueil">Accueil</a>
+    <a href="#apropos">À propos</a>
+    <a href="#services">Services</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#contact">Contact</a>
+    <a href="#">Mentions légales</a>
+    <a href="#">Politique de confidentialité</a>
+  </div>
+  <p style="margin-top: 1.5rem;">© 2024 Hélène Fournier · helene-h24.fr · Tous droits réservés</p>
+</footer>
+
+<script>
+  // MENU MOBILE
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+
+  // NAV active scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // FORMULAIRE RÉSERVATION
+  document.getElementById('reservationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('resaSuccess').style.display = 'block';
+    this.style.display = 'none';
+    // TODO: intégrer EmailJS ou backend
+  });
+
+  // FORMULAIRE CONTACT
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('contactSuccess').style.display = 'block';
+    this.reset();
+  });
+
+  // PAIEMENT – sélection prestation
+  const labels = {
+    60: 'Consultation – 1 heure',
+    90: 'Aide administrative – 2 heures',
+    135: 'Aide administrative – 3 heures',
+    180: 'Forfait journée – 4 heures'
+  };
+
+  function selectPaiement(el, prix) {
+    document.querySelectorAll('.paiement-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('paiementLabel').textContent = labels[prix];
+    document.getElementById('paiementPrix').textContent = prix + ' €';
+    document.getElementById('totalDisplay').textContent = prix + ' €';
+    document.getElementById('stripeBtn').dataset.prix = prix;
+  }
+
+  function handlePayment() {
+    const success = document.getElementById('paiementSuccess');
+    success.style.display = 'block';
+    success.textContent = '✓ Redirection vers le paiement sécurisé Stripe...';
+    // TODO: remplacer par votre lien Stripe Payment Link
+    // window.location.href = 'https://buy.stripe.com/VOTRE_LIEN';
+    setTimeout(() => { success.style.display = 'none'; }, 4000);
+  }
+
+  function handlePayPal() {
+    const success = document.getElementById('paiementSuccess');
+    success.style.display = 'block';
+    success.textContent = '✓ Redirection vers PayPal...';
+    // TODO: remplacer par votre lien PayPal.me
+    // window.location.href = 'https://paypal.me/VotreCompte';
+    setTimeout(() => { success.style.display = 'none'; }, 4000);
+  }
+</script>
+</body>
+</html>
